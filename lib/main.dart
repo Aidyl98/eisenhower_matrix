@@ -2,6 +2,7 @@ import 'package:eisenhower_matrix/core/theme/custom_theme.dart';
 import 'package:eisenhower_matrix/shared/shared_exporter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:get/get.dart';
 
 void main() {
   SystemChrome.setSystemUIOverlayStyle(
@@ -23,9 +24,10 @@ class MyApp extends StatelessWidget {
       DeviceOrientation.portraitUp,
       DeviceOrientation.portraitDown,
     ]);
-    return MaterialApp(
+    return GetMaterialApp(
       title: 'Eisenhower Matrix',
       theme: CustomTheme.lightThemeData,
+      debugShowCheckedModeBanner: false,
       home: const MyHomePage(),
     );
   }
