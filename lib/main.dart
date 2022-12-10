@@ -1,5 +1,6 @@
+import 'package:eisenhower_matrix/core/config/config_exporter.dart';
 import 'package:eisenhower_matrix/core/theme/custom_theme.dart';
-import 'package:eisenhower_matrix/shared/shared_exporter.dart';
+import 'package:eisenhower_matrix/features/home/home_exporter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
@@ -10,6 +11,9 @@ void main() {
       statusBarColor: Colors.transparent,
     ),
   );
+
+  /// Init the Dependencies injection of the Controllers of the View.
+  Config.initControllers();
 
   runApp(const MyApp());
 }
@@ -28,27 +32,13 @@ class MyApp extends StatelessWidget {
       title: 'Eisenhower Matrix',
       theme: CustomTheme.lightThemeData,
       debugShowCheckedModeBanner: false,
-      home: const MyHomePage(),
-    );
-  }
-}
-
-class MyHomePage extends StatelessWidget {
-  const MyHomePage({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: SafeArea(
-        top: false,
-        child: Column(
-          children: const [
-            ScreenTopBar(
-              title: "Einsehower Matrix",
-            ),
-          ],
+      initialRoute: '/home',
+      getPages: [
+        GetPage(
+          name: '/home',
+          page: () => const HomeScreen(),
         ),
-      ),
+      ],
     );
   }
 }
