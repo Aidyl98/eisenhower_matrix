@@ -27,9 +27,16 @@ class ColorsTheme {
     colors: <Color>[primaryRed, primaryBlue], // red to blue
   );
 
+  /// [LinearGradient] a gradient of red to blue.
+  static const LinearGradient backgrounGradient = LinearGradient(
+    begin: Alignment.topLeft,
+    end: Alignment.bottomRight, // 10% of the width, so there are ten blinds.
+    colors: <Color>[primaryRedLight, primaryBlueLight], // red to blue
+  );
+
   /// [BoxShadow] make the effect of have elevation in black.
   static const BoxShadow blackElevation = BoxShadow(
-    color: Color(0xFF7A808A40),
+    color: Colors.black,
     offset: Offset(0, 4),
     blurRadius: 8,
     spreadRadius: 0,
